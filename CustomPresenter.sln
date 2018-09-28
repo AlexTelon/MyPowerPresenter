@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomPresenter", "CustomPresenter\CustomPresenter.csproj", "{B3015316-3A53-469B-825D-01A4F053E99E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresenterTester", "PresenterTester\PresenterTester\PresenterTester.csproj", "{653B7982-6F91-453A-AF2B-2F4944C8D9DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresenterTester", "PresenterTester\PresenterTester.csproj", "{653B7982-6F91-453A-AF2B-2F4944C8D9DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresenterCore", "PresenterCore\PresenterCore.csproj", "{E2B81F11-A45E-4FB8-8584-25B791EBAB7F}"
 EndProject

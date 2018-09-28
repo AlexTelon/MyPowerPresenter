@@ -59,9 +59,6 @@
       <DependentUpon>SlideControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindowViewModel.cs" />
-    <Compile Include="Presentation.cs" />
-    <Compile Include="Slides\Slide.cs" />
-    <Compile Include="Utils\BindableBase.cs" />
     <Compile Include="Utils\RelayCommand.cs" />
     <Page Include="Controls\SlideControl.xaml">
       <SubType>Designer</SubType>
@@ -105,6 +102,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PresenterCore\PresenterCore.csproj">
+      <Project>{e2b81f11-a45e-4fb8-8584-25b791ebab7f}</Project>
+      <Name>PresenterCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

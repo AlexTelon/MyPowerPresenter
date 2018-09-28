@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CustomPresenter.Slides;
+using PresenterCore;
 
 namespace PresenterTester
 {

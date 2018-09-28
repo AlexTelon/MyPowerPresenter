@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace CustomPresenter.Utils
+namespace PresenterCore.Utils
 {
     public class BindableBase : INotifyPropertyChanged
     {

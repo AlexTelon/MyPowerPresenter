@@ -4,8 +4,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CustomPresenter.Slides;
 using CustomPresenter.Utils;
+using PresenterCore;
+using PresenterCore.Utils;
 
 namespace CustomPresenter
 {

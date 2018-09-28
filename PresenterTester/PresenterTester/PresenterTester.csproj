@@ -61,6 +61,10 @@
       <Project>{b3015316-3a53-469b-825d-01a4f053e99e}</Project>
       <Name>CustomPresenter</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\PresenterCore\PresenterCore.csproj">
+      <Project>{e2b81f11-a45e-4fb8-8584-25b791ebab7f}</Project>
+      <Name>PresenterCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomPresenter"
+        xmlns:slides="clr-namespace:CustomPresenter.Slides"
+        xmlns:controls="clr-namespace:CustomPresenter.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         WindowState="Maximized"
@@ -13,11 +15,27 @@
         <local:MainWindowViewModel/>
     </Window.DataContext>
 
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type slides:Slide}">
+            <controls:SlideControl DataContext="{Binding}" />
+        </DataTemplate>
+
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Key="Right" 
+                    Command="{Binding NextSlideCommand}"/>
+    </Window.InputBindings>
+
+    <!--<Grid Background="Black">-->
     <Grid>
-        <!--<StackPanel>
-            <Label Content="{Binding HelloWorld}"/>
-            <ListView ItemsSource="{Binding CollectionOfWords}"></ListView>
-        </StackPanel>-->
-        <Canvas Background="Black"></Canvas>
+
+        <ContentControl Content="{Binding Path=Presentation.CurrentSlide}"></ContentControl>
+
+        <!--<DataTemplate DataType="{x:Type data:VideoData}">
+            <local:VideoControl DataContext="{Binding}"></local:VideoControl>
+        </DataTemplate>-->
+
+        <!--<Canvas Background="Black"></Canvas>-->
     </Grid>
 </Window>

@@ -55,9 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\SlideControl.xaml.cs">
+      <DependentUpon>SlideControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Presentation.cs" />
+    <Compile Include="Slides\Slide.cs" />
     <Compile Include="Utils\BindableBase.cs" />
     <Compile Include="Utils\RelayCommand.cs" />
+    <Page Include="Controls\SlideControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

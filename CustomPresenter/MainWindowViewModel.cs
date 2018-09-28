@@ -30,21 +30,20 @@ namespace CustomPresenter
                 slide.Title = i.ToString();
                 Presentation.Add(slide);
             }
-
-
         }
 
 
         public RelayCommand<object> NextSlideCommand { get; internal set; }
+        public RelayCommand<object> PreviousSlideCommand { get; internal set; }
 
         private void SetUpCommands()
         {
             NextSlideCommand = new RelayCommand<object>(OnNextSlide);
+            PreviousSlideCommand = new RelayCommand<object>(OnPreviousSlide);
         }
 
-        private void OnNextSlide(object obj)
-        {
-            Presentation.Next();
-        }
+        private void OnNextSlide(object obj) => Presentation.Next();
+
+        private void OnPreviousSlide(object obj) => Presentation.Previous();
     }
 }

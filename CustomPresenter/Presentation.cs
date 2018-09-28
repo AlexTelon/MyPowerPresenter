@@ -48,6 +48,13 @@ namespace CustomPresenter
         /// </summary>
         public void Next() => Index = Math.Min(this.Count - 1, Index + 1);
 
+        /// <summary>
+        /// Moves presentaiton to previous slide.
+        /// Cannot go past first slide. Stays there and does nothing.
+        /// </summary>
+        public void Previous() => Index = Math.Max(0, Index - 1);
+
+
         private Slide DefaultEmptySlide => new Slide();
 
         //public new void PropertyChanged(string propertyName) => base.PropertyChanged(propertyName);
@@ -82,6 +89,5 @@ namespace CustomPresenter
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }

@@ -334,5 +334,84 @@ namespace PresenterTester
         }
 
 
+
+        [TestClass]
+        public class PresentationPreviousTests
+        {
+            [TestMethod]
+            public void CurrentSlideChangesCorrectly_NextPrevious()
+            {
+                var presentation = new Presentation();
+
+                // adding should only change CurrentSlide 1 time
+                for (int i = 0; i < 4; i++)
+                {
+                    var slide = new Slide();
+                    slide.Title = i.ToString();
+                    presentation.Add(slide);
+                }
+
+                presentation.Next();
+                presentation.Previous();
+
+                Assert.AreEqual("0", presentation.CurrentSlide.Title);
+            }
+
+            [TestMethod]
+            public void PreviousCannotMovePastStart()
+            {
+                var presentation = new Presentation();
+
+                var slide = new Slide();
+                slide.Title = "0";
+                presentation.Add(slide);
+
+                presentation.Previous();
+
+                Assert.AreEqual("0", presentation.CurrentSlide.Title);
+            }
+
+            [TestMethod]
+            public void PreviousCausesCurrentSlidePropertyChanges()
+            {
+                var presentation = new Presentation();
+
+                var counter = 0;
+
+                presentation.PropertyChanged += (sender, arg) =>
+                {
+                    counter++;
+                };
+
+                // adding should only change CurrentSlide 1 time
+                for (int i = 0; i < 4; i++)
+                {
+                    var slide = new Slide();
+                    slide.Title = i.ToString();
+                    presentation.Add(slide);
+                }
+
+                // 3 next
+                presentation.Next();
+                presentation.Next();
+                presentation.Next();
+
+                // 3 previous
+                presentation.Previous();
+                presentation.Previous();
+                presentation.Previous();
+
+                // no more!
+                presentation.Previous();
+                presentation.Previous();
+                presentation.Previous();
+
+                Assert.AreEqual(7, counter);
+            }
+
+
+
+        }
+
     }
 }

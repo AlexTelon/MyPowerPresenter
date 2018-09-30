@@ -12,7 +12,10 @@ namespace CustomPresenter
 {
     public static class FileHandling
     {
-        public static void ChooseFile()
+        /// <summary>
+        /// Only lets the user choose which file should be the default one. Does not load the file in anywhere or something.
+        /// </summary>
+        public static void ChooseCurrentFile()
         {
             // Displays an OpenFileDialog so the user can select a Cursor.  
             OpenFileDialog openFileDialog = new OpenFileDialog();

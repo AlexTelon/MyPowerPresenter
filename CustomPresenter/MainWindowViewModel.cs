@@ -27,24 +27,36 @@ namespace CustomPresenter
 
             if (!File.Exists(Settings.Default.CurrentFile))
             {
-                FileHandling.ChooseFile();
+                FileHandling.ChooseCurrentFile();
             }
 
+            LoadCurrentFile();
+        }
+
+        public void LoadCurrentFile()
+        {
             Presentation = LoadPresentation.LoadFromFile(Settings.Default.CurrentFile);
         }
 
-
         public RelayCommand<object> NextSlideCommand { get; internal set; }
         public RelayCommand<object> PreviousSlideCommand { get; internal set; }
+        public RelayCommand<object> LoadPresentationCommand { get; internal set; }
 
         private void SetUpCommands()
         {
             NextSlideCommand = new RelayCommand<object>(OnNextSlide);
             PreviousSlideCommand = new RelayCommand<object>(OnPreviousSlide);
+            LoadPresentationCommand = new RelayCommand<object>(OnLoadPresentation);
         }
 
         private void OnNextSlide(object obj) => Presentation.Next();
 
         private void OnPreviousSlide(object obj) => Presentation.Previous();
+
+        private void OnLoadPresentation(object obj)
+        {
+            FileHandling.ChooseCurrentFile();
+            LoadCurrentFile();
+        }
     }
 }

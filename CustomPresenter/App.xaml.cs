@@ -30,7 +30,7 @@ namespace CustomPresenter
             // Check if we need to ask the user which folder to load files from
             if (string.IsNullOrEmpty(Settings.Default.CurrentFile))
             {
-                FileHandling.ChooseFile();
+                FileHandling.ChooseCurrentFile();
             }
         }
     }

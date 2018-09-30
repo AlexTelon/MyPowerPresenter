@@ -26,6 +26,9 @@
                     Command="{Binding NextSlideCommand}"/>
         <KeyBinding Key="Left"
                     Command="{Binding PreviousSlideCommand}"/>
+        <KeyBinding Modifiers="Ctrl"
+                    Key="O"
+                    Command="{Binding LoadPresentationCommand}"/>
     </Window.InputBindings>
 
     <!--<Grid Background="Black">-->

@@ -17,9 +17,9 @@
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type core:Slide}">
-            <controls:SlideLayout DataContext="{Binding}" />
+            <controls:DarkSlideLayout DataContext="{Binding}" />
+            <!--<controls:SlideLayout DataContext="{Binding}" />-->
         </DataTemplate>
-
     </Window.Resources>
 
     <Window.InputBindings>

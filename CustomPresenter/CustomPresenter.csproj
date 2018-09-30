@@ -55,11 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\DarkSlideLayout.xaml.cs">
+      <DependentUpon>DarkSlideLayout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SlideLayout.xaml.cs">
       <DependentUpon>SlideLayout.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Utils\RelayCommand.cs" />
+    <Page Include="Controls\DarkSlideLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\SlideLayout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

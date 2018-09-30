@@ -20,5 +20,22 @@ namespace PresenterTester
             var title = slide.Title;
         }
 
+        [TestMethod]
+        public void SlideComparisons_NotEqual()
+        {
+            var slide = new Slide();
+            var slide2 = new Slide();
+
+            Assert.IsFalse(slide.Equals(slide2));
+        }
+
+        [TestMethod]
+        public void SlideComparisons_Equal()
+        {
+            var slide = new Slide();
+            var slide2 = slide;
+
+            Assert.IsTrue(slide.Equals(slide2));
+        }
     }
 }

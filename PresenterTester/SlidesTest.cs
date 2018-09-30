@@ -17,7 +17,9 @@ namespace PresenterTester
         public void HasTitle()
         {
             var slide = new Slide();
-            var title = slide.Title;
+            slide.Title = "test title";
+
+            Assert.AreEqual("test title", slide.Title);
         }
 
         [TestMethod]
@@ -36,6 +38,16 @@ namespace PresenterTester
             var slide2 = slide;
 
             Assert.IsTrue(slide.Equals(slide2));
+        }
+
+
+        [TestMethod]
+        public void HasBody()
+        {
+            var slide = new Slide();
+            slide.Body = "body text";
+
+            Assert.AreEqual("body text", slide.Body);
         }
     }
 }

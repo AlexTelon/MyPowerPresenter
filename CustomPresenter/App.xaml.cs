@@ -30,8 +30,17 @@ namespace CustomPresenter
             // Check if we need to ask the user which folder to load files from
             if (string.IsNullOrEmpty(Settings.Default.CurrentFile))
             {
-                FileHandling.ChooseCurrentFile();
+                FileHandling.ChooseCurrentFile(PresenterSettings.Default);
             }
+
+            // If the user has still not choosen a file close the program since we cannot show a presentaiton
+            // Later on it might be able it, but not yet
+            if (string.IsNullOrEmpty(Settings.Default.CurrentFile))
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
+
+
         }
     }
 }

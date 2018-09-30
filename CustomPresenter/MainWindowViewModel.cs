@@ -12,7 +12,7 @@ using PresenterCore.Utils;
 
 namespace CustomPresenter
 {
-    class MainWindowViewModel : BindableBase
+    public class MainWindowViewModel : BindableBase
     {
 
         public Presentation Presentation
@@ -21,13 +21,21 @@ namespace CustomPresenter
             set => Set(value);
         }
 
-        public MainWindowViewModel()
+        private PresenterSettings _settings = PresenterSettings.Default;
+
+        public MainWindowViewModel() : this(PresenterSettings.Default)
         {
+        }
+
+        public MainWindowViewModel(PresenterSettings settings = null)
+        {
+            _settings = settings;
+
             SetUpCommands();
 
-            if (!File.Exists(Settings.Default.CurrentFile))
+            if (!File.Exists(_settings.CurrentFile))
             {
-                FileHandling.ChooseCurrentFile();
+                FileHandling.ChooseCurrentFile(_settings);
             }
 
             LoadCurrentFile();
@@ -35,7 +43,7 @@ namespace CustomPresenter
 
         public void LoadCurrentFile()
         {
-            Presentation = LoadPresentation.LoadFromFile(Settings.Default.CurrentFile);
+            Presentation = LoadPresentation.LoadFromFile(_settings.CurrentFile);
         }
 
         public RelayCommand<object> NextSlideCommand { get; internal set; }
@@ -55,7 +63,7 @@ namespace CustomPresenter
 
         private void OnLoadPresentation(object obj)
         {
-            FileHandling.ChooseCurrentFile();
+            FileHandling.ChooseCurrentFile(_settings);
             LoadCurrentFile();
         }
     }

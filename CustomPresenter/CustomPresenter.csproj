@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="FileHandling.cs" />
+    <Compile Include="PresenterSettings.cs" />
     <Compile Include="Utils\ColorToBrushConverter.cs" />
     <Compile Include="Utils\RelayCommand.cs" />
     <Page Include="Controls\SlideLayout.xaml">

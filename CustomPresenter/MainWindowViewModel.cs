@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CustomPresenter.Properties;
 using CustomPresenter.Utils;
 using PresenterCore;
 using PresenterCore.Utils;
@@ -23,14 +25,12 @@ namespace CustomPresenter
         {
             SetUpCommands();
 
-            Presentation = new Presentation();
-
-            for (int i = 0; i < 4; i++)
+            if (!File.Exists(Settings.Default.CurrentFile))
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-                Presentation.Add(slide);
+                FileHandling.ChooseFile();
             }
+
+            Presentation = LoadPresentation.LoadFromFile(Settings.Default.CurrentFile);
         }
 
 

@@ -60,6 +60,7 @@
       <DependentUpon>SlideLayout.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="FileHandling.cs" />
     <Compile Include="Utils\ColorToBrushConverter.cs" />
     <Compile Include="Utils\RelayCommand.cs" />
     <Page Include="Controls\SlideLayout.xaml">
@@ -101,6 +102,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="SamplePresentations\SamplePresentation.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

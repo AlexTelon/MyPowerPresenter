@@ -46,5 +46,29 @@ namespace CustomPresenter.Properties {
                 this["Foreground"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CurrentFolder {
+            get {
+                return ((string)(this["CurrentFolder"]));
+            }
+            set {
+                this["CurrentFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CurrentFile {
+            get {
+                return ((string)(this["CurrentFile"]));
+            }
+            set {
+                this["CurrentFile"] = value;
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace PresenterTester
     public class PresentationTest
     {
         [TestMethod]
-        public void AddSlide()
+        public void AddSlideExists()
         {
             var presentation = new Presentation();
             var slide = new Slide();
@@ -24,19 +24,17 @@ namespace PresenterTester
             presentation.Add(slide);
 
             Slide current = presentation.CurrentSlide;
+            Assert.AreEqual(slide, presentation.CurrentSlide);
         }
 
         [TestMethod]
-        public void AddMultipleSlides()
+        public void AddMultipleSlides_CheckCount()
         {
             var presentation = new Presentation();
 
             for (int i = 0; i < 4; i++)
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-
-                presentation.Add(slide);
+                presentation.Add(new Slide());
             }
 
             Assert.AreEqual(4, presentation.Count);
@@ -49,11 +47,10 @@ namespace PresenterTester
 
             for (int i = 0; i < 4; i++)
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-                presentation.Add(slide);
+                presentation.Add(new Slide());
             }
-            Assert.AreEqual("0", presentation.CurrentSlide.Title);
+
+            Assert.AreEqual(presentation[0], presentation.CurrentSlide);
         }
 
         [TestMethod]
@@ -62,14 +59,12 @@ namespace PresenterTester
             var presentation = new Presentation();
             for (int i = 0; i < 4; i++)
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-                presentation.Add(slide);
+                presentation.Add(new Slide());
             }
 
             presentation.Next();
 
-            Assert.AreEqual("1", presentation.CurrentSlide.Title);
+            Assert.AreEqual(presentation[1], presentation.CurrentSlide);
         }
 
         [TestMethod]
@@ -78,15 +73,13 @@ namespace PresenterTester
             var presentation = new Presentation();
             for (int i = 0; i < 4; i++)
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-                presentation.Add(slide);
+                presentation.Add(new Slide());
             }
 
             presentation.Next();
             presentation.Next();
 
-            Assert.AreEqual("2", presentation.CurrentSlide.Title);
+            Assert.AreEqual(presentation[2], presentation.CurrentSlide);
         }
 
         [TestMethod]
@@ -95,16 +88,14 @@ namespace PresenterTester
             var presentation = new Presentation();
             for (int i = 0; i < 4; i++)
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-                presentation.Add(slide);
+                presentation.Add(new Slide());
             }
 
             presentation.Next();
             presentation.Next();
             presentation.Next();
 
-            Assert.AreEqual("3", presentation.CurrentSlide.Title);
+            Assert.AreEqual(presentation[3], presentation.CurrentSlide);
         }
 
         [TestMethod]
@@ -113,9 +104,7 @@ namespace PresenterTester
             var presentation = new Presentation();
             for (int i = 0; i < 4; i++)
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-                presentation.Add(slide);
+                presentation.Add(new Slide());
             }
 
             presentation.Next();
@@ -124,7 +113,7 @@ namespace PresenterTester
             presentation.Next(); // This next should do nothing.
             presentation.Next(); // This next should do nothing.
 
-            Assert.AreEqual("3", presentation.CurrentSlide.Title);
+            Assert.AreEqual(presentation[3], presentation.CurrentSlide);
         }
 
         [TestMethod]
@@ -133,9 +122,7 @@ namespace PresenterTester
             var presentation = new Presentation();
             for (int i = 0; i < 4; i++)
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-                presentation.Add(slide);
+                presentation.Add(new Slide());
             }
 
             presentation.Next();
@@ -144,26 +131,27 @@ namespace PresenterTester
 
             presentation.Remove(presentation.CurrentSlide);
 
-            Assert.AreEqual("2", presentation.CurrentSlide.Title);
+            Assert.AreEqual(presentation[2], presentation.CurrentSlide);
         }
 
         [TestMethod]
         public void MultipleRemoveCurrentSlide()
         {
             var presentation = new Presentation();
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-                presentation.Add(slide);
+                presentation.Add(new Slide());
             }
+
+            var lastSlide = new Slide();
+            presentation.Add(lastSlide);
 
             presentation.Remove(presentation.CurrentSlide); // removes first
             presentation.Remove(presentation.CurrentSlide); // removes new first
             presentation.Remove(presentation.CurrentSlide); // removes new first
             // now we should only have the last one left
 
-            Assert.AreEqual("3", presentation.CurrentSlide.Title);
+            Assert.AreEqual(lastSlide, presentation.CurrentSlide);
         }
 
         [TestMethod]
@@ -172,9 +160,7 @@ namespace PresenterTester
             var presentation = new Presentation();
             for (int i = 0; i < 4; i++)
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-                presentation.Add(slide);
+                presentation.Add(new Slide());
             }
 
             presentation.Remove(presentation.CurrentSlide);
@@ -201,9 +187,7 @@ namespace PresenterTester
             // add 4 times
             for (int i = 0; i < 4; i++)
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-                presentation.Add(slide);
+                presentation.Add(new Slide());
             }
 
             // remove 4 times
@@ -230,9 +214,7 @@ namespace PresenterTester
             // adding should only change CurrentSlide 1 time
             for (int i = 0; i < 4; i++)
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-                presentation.Add(slide);
+                presentation.Add(new Slide());
             }
 
             Assert.AreEqual(1, counter);
@@ -253,9 +235,7 @@ namespace PresenterTester
             // adding should only change CurrentSlide 1 time
             for (int i = 0; i < 4; i++)
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-                presentation.Add(slide);
+                presentation.Add(new Slide());
             }
 
             // removing currentSlide should update each time
@@ -283,9 +263,7 @@ namespace PresenterTester
             // adding should only change CurrentSlide 1 time
             for (int i = 0; i < 4; i++)
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-                presentation.Add(slide);
+                presentation.Add(new Slide());
             }
 
             // 3 next, all should update
@@ -312,9 +290,7 @@ namespace PresenterTester
             // adding should only change CurrentSlide 1 time
             for (int i = 0; i < 4; i++)
             {
-                var slide = new Slide();
-                slide.Title = i.ToString();
-                presentation.Add(slide);
+                presentation.Add(new Slide());
             }
             // current is index 0
             presentation.Next(); // current - index 1 (notify!)
@@ -345,15 +321,13 @@ namespace PresenterTester
                 // adding should only change CurrentSlide 1 time
                 for (int i = 0; i < 4; i++)
                 {
-                    var slide = new Slide();
-                    slide.Title = i.ToString();
-                    presentation.Add(slide);
+                    presentation.Add(new Slide());
                 }
 
                 presentation.Next();
                 presentation.Previous();
 
-                Assert.AreEqual("0", presentation.CurrentSlide.Title);
+                Assert.AreEqual(presentation[0], presentation.CurrentSlide);
             }
 
             [TestMethod]
@@ -362,12 +336,11 @@ namespace PresenterTester
                 var presentation = new Presentation();
 
                 var slide = new Slide();
-                slide.Title = "0";
                 presentation.Add(slide);
 
                 presentation.Previous();
 
-                Assert.AreEqual("0", presentation.CurrentSlide.Title);
+                Assert.AreEqual(slide, presentation.CurrentSlide);
             }
 
             [TestMethod]
@@ -385,9 +358,7 @@ namespace PresenterTester
                 // adding should only change CurrentSlide 1 time
                 for (int i = 0; i < 4; i++)
                 {
-                    var slide = new Slide();
-                    slide.Title = i.ToString();
-                    presentation.Add(slide);
+                    presentation.Add(new Slide());
                 }
 
                 // 3 next

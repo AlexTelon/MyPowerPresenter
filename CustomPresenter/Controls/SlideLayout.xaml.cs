@@ -18,9 +18,9 @@ namespace CustomPresenter.Controls
     /// <summary>
     /// Interaction logic for SlideControl.xaml
     /// </summary>
-    public partial class SlideControl : UserControl
+    public partial class SlideLayout : UserControl
     {
-        public SlideControl()
+        public SlideLayout()
         {
             InitializeComponent();
         }

@@ -18,6 +18,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -39,6 +40,14 @@
                    VerticalAlignment="Center"
                    TextWrapping="WrapWithOverflow"
                    FontSize="14"
+                   Foreground="{Binding Source={x:Static properties:Settings.Default}, Path=Foreground, Converter={StaticResource ColorToBrushConverter}}"/>
+        <TextBlock Grid.Row="2"
+                   Grid.Column="1"
+                   Text="{Binding Footer}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   TextWrapping="WrapWithOverflow"
+                   FontSize="10"
                    Foreground="{Binding Source={x:Static properties:Settings.Default}, Path=Foreground, Converter={StaticResource ColorToBrushConverter}}"/>
     </Grid>
 </UserControl>

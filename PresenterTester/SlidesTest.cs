@@ -49,5 +49,14 @@ namespace PresenterTester
 
             Assert.AreEqual("body text", slide.Body);
         }
+
+        [TestMethod]
+        public void HasFooter()
+        {
+            var slide = new Slide();
+            slide.Footer = "footer text";
+
+            Assert.AreEqual("footer text", slide.Footer);
+        }
     }
 }

@@ -47,15 +47,19 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PresentationTest.cs" />
     <Compile Include="SlidesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LoadPresentationTest.cs" />
+    <Compile Include="ViewModelTesting\MainWindowViewModelTest.cs" />
+    <Compile Include="ViewModelTesting\PresenterSettingsMock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="ViewModelTesting\SamplePresentation.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CustomPresenter\CustomPresenter.csproj">
